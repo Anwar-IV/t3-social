@@ -1,4 +1,5 @@
 import { type NextPage } from "next";
+import { InfiniteTweetList } from "~/components/InfiniteTweetList";
 import { NewTweetForm } from "~/components/NewTweetForm";
 import { api } from "~/utils/api";
 

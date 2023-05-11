@@ -1,3 +1,5 @@
+import InfiniteScroll from "react-infinite-scroll-component";
+
 type Tweet = {
   id: string;
   content: string;
@@ -30,5 +32,19 @@ export function InfiniteTweetList({
       <h2 className="my-4 text-center text-2xl text-gray-500">No tweets</h2>
     );
   }
-  return <ul></ul>;
+  if (hasMore == null) throw new Error("'hasMore' property undefined!");
+  return (
+    <ul>
+      <InfiniteScroll
+        dataLength={tweets.length}
+        next={fetchNewTweets}
+        hasMore={hasMore}
+        loader={"Loading..."}
+      >
+        {tweets.map((tweet) => (
+          <div key={tweet.id}>{tweet.content}</div>
+        ))}
+      </InfiniteScroll>
+    </ul>
+  );
 }
