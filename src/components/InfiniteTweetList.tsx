@@ -58,14 +58,7 @@ const dateTimeFormatter = new Intl.DateTimeFormat(undefined, {
   dateStyle: "short",
 });
 
-function TweetCard({
-  id,
-  user,
-  content,
-  createdAt,
-  likeCount,
-  likedByMe,
-}: Tweet) {
+function TweetCard({ user, content, createdAt, likeCount, likedByMe }: Tweet) {
   return (
     <li className="flex gap-4 border-b px-4 py-4">
       <Link href={`/profiles/${user.id}`}>
